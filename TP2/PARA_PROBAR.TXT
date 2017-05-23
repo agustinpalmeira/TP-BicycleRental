@@ -1,0 +1,6 @@
+-uniendo estacionINICIO-ESTACIONFIN
+-relacion temperatura promedio en fahrenheit y la duracion 
+-relacion velocidad promedio del viento y la duraciom 
+-relacion entre la maxima velocidad de las rafagas de viento y la duracion
+-relacion precipitation inches y duracion
+
