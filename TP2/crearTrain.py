@@ -19,9 +19,11 @@ weather['year'] = pd.DatetimeIndex(weather['date']).year
 weather['month'] = pd.DatetimeIndex(weather['date']).month
 weather['day'] = pd.DatetimeIndex(weather['date']).day
 weather_94107 = weather.loc[weather['zip_code'] == 94107 , :]
-trips_weather_94107 = pd.merge(trips_menos_1,weather_94107,how='left',on=['year','month','day'])
-trips_col= trips_weather_94107[['duration','mean_temperature_f', 'mean_wind_speed_mph','max_gust_speed_mph','precipitation_inches']]
-trips_col.to_csv("trainEditado2.csv", index=False)
 
-print "\nCreado y guardado como trainEditado2.csv\n"
+trips_weather_94107 = pd.merge(trips_menos_1,weather_94107,how='left',on=['year','month','day'])
+trips_col= trips_weather_94107[['duration','start_station_id','mean_temperature_f','mean_wind_speed_mph','max_gust_speed_mph']]
+
+trips_col.to_csv("trainEditado.csv", index=False)
+
+print "\nCreado y guardado como trainEditado.csv\n"
 
