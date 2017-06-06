@@ -21,7 +21,7 @@ weather['day'] = pd.DatetimeIndex(weather['date']).day
 weather_94107 = weather.loc[weather['zip_code'] == 94107 , :]
 
 trips_weather_94107 = pd.merge(trips,weather_94107,how='left',on=['year','month','day'])
-trips_col= trips_weather_94107[['start_station_id','mean_temperature_f','mean_wind_speed_mph','max_gust_speed_mph']]
+trips_col= trips_weather_94107[['id','start_station_id','mean_temperature_f','mean_wind_speed_mph','max_gust_speed_mph']]
 trips_col.dropna(inplace=True) ##para eliminar los nulos y nan
 trips_col.to_csv("testEditado.csv", index=False)
 
