@@ -15,9 +15,9 @@ train = pd.read_csv("trainEditado.csv", header=0, \
 labels = train['duration']
 train = train.drop(['duration'],1)
 
-myList = list(range(1,50))
+k_list = list(range(1,50))
 
-neighbors = filter(lambda x: x % 2 != 0, myList)
+neighbors = filter(lambda x: x % 2 != 0, k_list)
 
 cv_scores = []
 
@@ -26,7 +26,7 @@ for k in neighbors:
 	scores = cross_val_score(knn, train, labels, cv=10)
 	cv_scores.append(scores.mean())
 
-MSE = [1 - x for x in cv_scores]
+error = [1 - x for x in cv_scores]
 
-optimal_k = neighbors[MSE.index(min(MSE))]
-print "The optimal number of neighbors is %d" % optimal_k
+optimal_k = neighbors[error.index(min(error))]
+print "El k óptimo es: %d" % optimal_k

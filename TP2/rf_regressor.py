@@ -24,13 +24,5 @@ test= pd.read_csv("testEditado7.csv", header=0,delimiter=",", quoting=2)
 test2=test
 test = test.drop(['id'],1)
 rfr_preds = rfr.predict(test)
-output = pd.DataFrame( data={"id":test2["id"], "duration":rfr_preds} )
-
-#output.to_csv( "submission44.csv", index=False, quoting=1 )
-y=output
-y['id'] = y['id'].astype(int)
-y['duration']= y['duration'] .astype(int)
-aux= pd.read_csv("trip.csv", header=0,delimiter=",", quoting=2)
-prueba = pd.merge(aux,y,how='inner', on='id')
-MSE = mean_squared_error(prueba['duration_x'],prueba['duration_y'])
-print "error cuadratico medio",MSE
+output = pd.DataFrame( data={"Id":test2["id"], "duration":rfr_preds} )
+output.to_csv( "submission44.csv", index=False, quoting=1 )
